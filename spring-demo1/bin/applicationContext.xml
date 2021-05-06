@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+ <!-- Define the dependency - nista drugo nego bean koji cemo da ubacimo u neki drugi bean(preko konstruktora ili settera) -->
+    <bean id = "myHappyFortune" 
+    	class = "com.razal.springdemo.HappyFortuneService"> <!-- Bukvalno je kao new HappyFortuneService() -->
+    </bean>
+    
+    <bean id = "myCoach" 
+    	class = "com.razal.springdemo.JudoCoach"> <!-- new BaseballCoach() -->
+    	
+    	
+		<!--Set up constructor injection -->	<!-- poziva parametrizovan konstruktor -->
+		<constructor-arg ref = "myHappyFortune"></constructor-arg>  <!-- new BaseballCoach(new HappyFortuneService()) -->
+	
+		<!--Set up setter injection -->
+    	<property name = "fortuneService" ref = "mySadFortune"></property> <!-- judoCoach.setFortuneService(mySadFortuneService) -->
+		
+		<property name="emailAddress" value="lazaj1999@gmail.com"></property>
+		
+		<property name="team" value = "Dzudo klub Backa Sombor"></property>
+	
+	</bean>
+    
+    <bean id = "mySadFortune" 
+    	class = "com.razal.springdemo.SadFortuneService"> 
+    </bean>
+    
+    	
+    
+</beans>
+
+
+
+
+

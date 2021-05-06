@@ -1,0 +1,23 @@
+
+1.INVERSION OF CONTROL - (IOC)
+		
+	
+		- U config fajlu mogu da menjam klasu od koje zelim objekat
+	tj odvojena je konfiguracija od implementacije
+		
+		- I sad je bukvalno cela implementacija sakrivena
+	tj nema menjanja source koda,implementacija je ostala ista u tome je sustina i prednost
+
+
+2.DEPENDANCY INJECION (dependency - HELPER)
+ 	
+ 	
+ 	- Constructor injection - Spring napravi bean i posalje ga u konstruktor neke klase (configurationFile.xml)
+ 		Kada ja kazem getBean(trazim od spring kontejnera objekat neke klase) on ce da napravi taj objekat
+ 		sa parametrizovanim konstruktorom
+ 		
+	 - Setter injection - 
+		to isto mogu da uradim i u setteru	
+		
+	U xml fajlu ref = "Objektni tip"
+				value = "Vrednosni tip"
